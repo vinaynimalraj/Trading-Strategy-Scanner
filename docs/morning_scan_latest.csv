@@ -1,0 +1,5 @@
+symbol,night_eligible,night_d1_bar_end,current_d1_bar_end,daily_trend,daily_phase,h4_trend,h1_trend,ema_stack,ema_bounce,latest_h1_bar_end,status,reason
+GBPUSD,NO,2026-11-17T00:00:00+00:00,2026-11-17T00:00:00+00:00,none,undetermined,,,,,,DAILY_REJECT,High 1.34578 breached protected LH 1.34447
+EURUSD,NO,2026-11-17T00:00:00+00:00,2026-11-17T00:00:00+00:00,none,undetermined,,,,,,DAILY_REJECT,High 1.12724 breached protected LH 1.1268799999999999
+USDJPY,NO,2026-11-17T00:00:00+00:00,2026-11-17T00:00:00+00:00,none,undetermined,,,,,,DAILY_REJECT,Confirmed LH violated uptrend
+AUDUSD,NO,2026-11-17T00:00:00+00:00,2026-11-17T00:00:00+00:00,none,undetermined,,,,,,DAILY_REJECT,Low 0.7118 breached protected HL 0.71352

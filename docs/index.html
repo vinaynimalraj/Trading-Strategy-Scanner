@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trading Strategy Scanner</title>
+<meta name="description" content="A read-only FX scanner using daily, 4-hour and 1-hour market structure and EMA filters.">
+<style>
+:root { color-scheme:dark; --bg:#101719; --panel:#182224; --ink:#edf4ee; --muted:#adbfba; --line:#344644; --accent:#a9edc7; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 system-ui,sans-serif; }
+main, footer { width:min(100% - 40px,1040px); margin:auto; }
+header { padding:72px 0 32px; }
+h1,h2,h3,p { margin:0; }
+h1 { max-width:850px; font-size:clamp(2.7rem,8vw,5.4rem); line-height:1; font-weight:680; letter-spacing:-.065em; }
+h2 { font-size:clamp(1.4rem,4vw,2rem); letter-spacing:-.035em; }
+header p { max-width:660px; margin:22px 0 0; font-size:1.15rem; }
+p, time, td { color:var(--muted); }
+section { margin:28px 0 48px; }
+.snapshot { border:1px solid var(--line); border-radius:16px; padding:clamp(16px,4vw,32px); background:var(--panel); }
+.snapshot h2 { margin-bottom:6px; }
+.snapshot time { display:block; margin-bottom:8px; }
+table { border-collapse:collapse; width:100%; text-align:left; margin:18px 0; }
+th,td { border-top:1px solid var(--line); padding:12px 12px 12px 0; vertical-align:top; }
+th[scope=row] { white-space:nowrap; }
+a { color:var(--accent); text-underline-offset:4px; }
+a:focus-visible { outline:2px solid var(--accent); outline-offset:4px; }
+.downloads { display:flex; flex-wrap:wrap; gap:8px 24px; }
+ol { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; padding:0; list-style:none; }
+ol li { padding-top:12px; border-top:2px solid var(--line); }
+li h3 { margin-bottom:6px; }
+footer { border-top:1px solid var(--line); padding:18px 0 36px; }
+@media(max-width:680px) { header { padding-top:44px; } ol { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>Trading Strategy Scanner</h1>
+<p>A read-only FX scanner that checks market structure across daily, 4-hour and 1-hour candles before flagging EMA setups for manual review.</p>
+</header>
+<section class="snapshot" aria-labelledby="results">
+<h2 id="results">Scan snapshot</h2>
+<time datetime="2026-11-17">17 November 2026</time>
+<p>Four pairs checked. All four were rejected at the daily check.</p>
+<table aria-label="Morning scan results">
+<thead><tr><th scope="col">Pair</th><th scope="col">Daily rejection reason</th></tr></thead>
+<tbody>
+<tr><th scope="row">GBPUSD</th><td>High of 1.34578 breached the protected lower high of 1.34447.</td></tr>
+<tr><th scope="row">EURUSD</th><td>High of 1.12724 breached the protected lower high of 1.12688.</td></tr>
+<tr><th scope="row">USDJPY</th><td>A confirmed lower high invalidated the uptrend.</td></tr>
+<tr><th scope="row">AUDUSD</th><td>Low of 0.7118 breached the protected higher low of 0.71352.</td></tr>
+</tbody>
+</table>
+<div class="downloads">
+<a href="night_scan_latest.csv" download>Download night scan CSV</a>
+<a href="morning_scan_latest.csv" download>Download morning scan CSV</a>
+</div>
+</section>
+<section aria-labelledby="workflow">
+<h2 id="workflow">How the scanner works</h2>
+<ol>
+<li><h3>Night scan</h3><p>Confirm the daily trend using swing structure and two consecutive closes through the reference wick. Shortlist valid Phase 1 trends after checking for a breach of the protected swing.</p></li>
+<li><h3>Morning scan</h3><p>Recheck the daily trend and look for the same direction on the 4-hour and 1-hour charts.</p></li>
+<li><h3>EMA check</h3><p>Check the 20, 50 and 200 EMA stack. A completed H1 candle that touches the 20 EMA and opens and closes on the trend side qualifies for manual review.</p></li>
+</ol>
+</section>
+</main>
+<footer><p>The scanner runs locally through MetaTrader 5. This page shows a saved report.</p></footer>
+</body>
+</html>

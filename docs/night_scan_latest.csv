@@ -1,0 +1,5 @@
+symbol,daily_trend,daily_phase,eligible,last_completed_d1_utc,reason
+GBPUSD,none,undetermined,NO,2026-11-17T00:00:00+00:00,High 1.34578 breached protected LH 1.34447
+EURUSD,none,undetermined,NO,2026-11-17T00:00:00+00:00,High 1.12724 breached protected LH 1.1268799999999999
+USDJPY,none,undetermined,NO,2026-11-17T00:00:00+00:00,Confirmed LH violated uptrend
+AUDUSD,none,undetermined,NO,2026-11-17T00:00:00+00:00,Low 0.7118 breached protected HL 0.71352
